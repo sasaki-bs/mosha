@@ -78,14 +78,13 @@ header .container {
 
 .nav-pc a {
   color: #333;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .nav-pc a:hover {
   text-decoration: underline;
   opacity: 0.7;
 }
-
 
 
 /* ================
@@ -96,14 +95,16 @@ header .container {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
+  transition: all .4s;
+  box-sizing: border-box;
 }
 
-.menu-trigger,
 .menu-trigger span {
   display: inline-block;
   transition: all .4s;
   box-sizing: border-box;
 }
+
 /* ここまで=========*/
 
 
@@ -121,6 +122,7 @@ header .container {
   display: none;
 }
 
+
 .main-visual {
   display: block;
   position: relative;
@@ -133,11 +135,39 @@ header .container {
   margin-top: 0;
 }
 
+.pc-slider .slick-prev,
+.pc-slider .slick-next,
+.sp-slider .slick-prev,
+.sp-slider .slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+
+}
+
+.pc-slider .slick-prev,
+.sp-slider .slick-prev {
+  left: 10px;
+}
+
+.pc-slider .slick-next,
+.sp-slider .slick-next {
+  right: 10px;
+}
+
+.pc-slider .slick-prev:before,
+.pc-slider .slick-next:before,
+.sp-slider .slick-prev:before,
+.sp-slider .slick-next:before {
+  color: #fff;
+  font-size: 20px;
+}
+
 
 /* PC　LINEボタン*/
 .LINE-button {
   display: inline-block;
-  background-color: none;
+  background-color: transparent;
   color: #13b852;
   text-decoration: none;
   border: 1px solid #13b852;
@@ -184,6 +214,7 @@ header .container {
 
   /* スマホハンバーガーメニュー */
   .menu-trigger {
+    display: block;
     width: 40px;
     height: 40px;
     position: absolute;
@@ -236,7 +267,7 @@ header .container {
   }
 
 
-  /*----- スマホのメニュー ----- */
+  /*----- スマホメニュー ----- */
   .nav-pc {
     display: none;
     /* クリック前は消えている*/
@@ -300,23 +331,20 @@ header .container {
     visibility: hidden;
   }
 
+   /* slick起動・表示 */
   .sp-slider.slick-initialized {
     visibility: visible;
   }
 
-  /*スライダーの矢印消す*/
-  .slick-next,
-  .slick-prev {
-    display: none !important;
-  }
+  
 
   /* スマホ用・メインビジュアル内LINEボタン*/
   .LINE-button {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     color: #48e685;
     border: 1px solid #48e685;
     display: inline-block;
-    padding: 3px 4px;
+    padding: 3px 3px;
     position: absolute;
     top: 55%;
     left: 50%;
@@ -336,14 +364,15 @@ header .container {
 
 h1 {
   display: inline-block;
-  margin-top: 60px;
-  margin-bottom: 30px;
   font-size: 40px;
   line-height: 1.4;
+  margin-top: 60px;
+  margin-bottom: 30px;
   border-bottom: double 3px #333;
   padding-bottom: 10px;
 }
 
+/*どんな結婚スタイル～*/
 h2 {
   font-size: 28px;
   margin-bottom: 25px;
@@ -380,41 +409,45 @@ main レスポンシブ
 @media (max-width: 768px) {
   .intro-container {
     width: 100%;
-    padding: 0 10px;
+    padding: 0 40px;
     box-sizing: border-box;
 
   }
 
   h1 {
-    font-size: 35px;
+    font-size: 28px;
     margin-top: 20px;
     /* PCより余白を詰める */
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.5;
     display: block;
     border-bottom: 2px double #333;
     padding-bottom: 15px;
     font-weight: normal;
+    text-align: left;
   }
 
   /* 「どんな結婚スタイル〜」 */
-  h2 {
+  .intro-container h2 {
     font-size: 23px;
     margin-bottom: 20px;
     font-weight: bold;
-    line-height: 1.5;
+    line-height: 1.4;
+    text-align: left;
   }
 
   p {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin: 0 0 30px;
+    text-align: left;
+
   }
 
   /* LINE相談ボタンの調整 */
   .soudan-button {
     width: 90%;
-    font-size: 15px;
+    font-size: 12px;
     padding: 12px 10px;
     line-height: 1.4;
 
@@ -423,7 +456,6 @@ main レスポンシブ
 
 /* レスポンシブルここまで
 ===================*/
-
 /*Concept・VOICE・Report画像の設定*/
 
 .heading {
@@ -440,7 +472,7 @@ main レスポンシブ
   margin-top: 150px;
 }
 
-/* 画像の設定 */
+/* 共通・画像設定 */
 .category-img {
   margin-bottom: 1px;
 }
@@ -449,12 +481,12 @@ main レスポンシブ
   max-width: 240px;
   height: auto;
   display: block;
-  /* 下の隙間を消す */
 }
 
-/* キャプションの設定 */
-.sub {
-  font-size: 14px;
+/*-コンセプト-、-こんなご相談～-設定*/
+.category-box .heading-label {
+  font-size: 16px;
+  font-weight: normal;
   color: #333;
   margin: 0;
   letter-spacing: 0.1em;
@@ -476,6 +508,7 @@ main レスポンシブ
   text-align: left;
 }
 
+/*Concept h3 12000組の実績*/
 .concept-description h3 {
   font-size: 28px;
   margin-bottom: 30px;
@@ -486,9 +519,10 @@ main レスポンシブ
   font-weight: bold;
 }
 
+/*Concept p*/
 .concept-description p {
-  font-size: 15px;
-  line-height: 2;
+  font-size: 18px;
+  line-height: 1.8;
   text-align: left;
 }
 
@@ -518,7 +552,7 @@ concept レスポンシブ
 
   .concept-description h3 {
     font-size: 23px;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 20px 0;
     white-space: normal;
   }
@@ -540,7 +574,7 @@ concept レスポンシブ
 ===================*/
 
 
-/*吹き出しエリア*/
+/*VOICE 吹き出しエリア*/
 /*まとめアウターの設定*/
 .outer {
   max-width: 1000px;
@@ -659,30 +693,31 @@ concept レスポンシブ
   right: -32px;
 }
 
-/* 挙式プラン・フォトプランタイトルバー */
-.plan-title-bar {
-  background-color: #efefef;
-  width: 100%;
-  margin-top: 43.2px;
-  margin-bottom: 34.56px;
-  padding: 17.28px 0;
-  text-align: center;
-}
 
-/* タイトルテキスト自体の設定 */
-.plan-title {
-  color: #222222;
-  font-size: 28.8px;
-  font-weight: normal;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* —長崎家族婚花嫁レポート—設定 */
+/* REPORTエリア*/
+/* —長崎家族婚花嫁レポート点線（画像設定は共通利用） */
 .sub {
   border-bottom: dotted 1px #333;
   width: 100%;
 
+}
+
+/* h2 Wedding Ceremony（挙式プラン）・photo(フォトプラン） */
+.plan-title {
+  color: #222222;
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+
+/* 挙式プラン・フォトプランタイトル背景 */
+.plan-title-bar {
+  background-color: #efefef;
+  width: 100%;
+  margin-top: 45px;
+  padding: 15px 5px;
 }
 
 /* 家族挙式のスタイルも様々~設定 */
@@ -696,7 +731,7 @@ concept レスポンシブ
 
 
 
-/*REPORT・プランエリア*/
+/*各プランエリア*/
 /* セクション全体の基本設定 */
 .wedding-plan {
   padding: 40px 0;
@@ -724,26 +759,26 @@ concept レスポンシブ
   display: block;
 }
 
-/* テキストエリア：右側 */
+/* テキストエリア */
 .wedding-plan .content-box {
   flex: 1;
   min-width: 300px;
 }
 
-/* プラン名 */
+/* H4 「神社婚」「式場挙式プラン」などプラン名 */
 .wedding-plan .title {
-  font-size: 24px;
+  font-size: 28px;
   margin: 0 0 5px 0;
   font-weight: normal;
-  line-height: 1.7;
+  line-height: 1.5;
   border-bottom: dotted 1px #222222;
 }
 
 
 /* 説明文 */
 .wedding-plan .description {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.6;
   margin-bottom: 30px;
   font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, sans-serif;
 }
@@ -798,21 +833,30 @@ concept レスポンシブ
   .plan-title-bar {
     background-color: #eee;
     width: 100%;
-    text-align: center;
     margin-bottom: 20px;
   }
 
+  /* h2「挙式プラン」・「フォトプラン」文字 設定*/
   .plan-title {
-    font-size: 20px;
-    margin: 0 auto;
+    font-size: 23px;
+    color: #2a2d2b;
+    margin: 10px 0;
     text-align: center;
-  }
-
-  .wedding-plan .description {
-    font-size: 14px;
     line-height: 1.5;
   }
 
+  /* h3 各プラン文字 */
+  .wedding-plan .title {
+    font-size: 23px;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+
+  /* p */
+  .wedding-plan .description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
 }
 
 /* ここまで
@@ -826,7 +870,6 @@ concept レスポンシブ
   text-align: center;
   margin: 20px auto;
   width: 90%;
-  /* お好みで調整 */
   max-width: 1000px;
 }
 
@@ -923,10 +966,10 @@ concept レスポンシブ
   opacity: 0.6;
 }
 
-/* 2. インスタロゴを浮かび上がらせる */
+/* 2. インスタロゴを浮かび上がらせる設定 */
 .insta-icon-wrap::after {
   content: "\f16d";
-  /* FontAwesomeのInstagramアイコンコード */
+  /* Instagramアイコンコード */
   font-family: "Font Awesome 5 Brands";
   position: absolute;
   top: 50%;
@@ -975,7 +1018,8 @@ concept レスポンシブ
 
 /* 共通のボタンスタイル */
 .insta-buttons a {
-  display: inline-flex;/*横にアイコンを並べる為*/
+  display: inline-flex;
+  /*横にアイコンを並べる*/
   align-items: center;
   justify-content: center;
   margin: 5px;
@@ -1047,6 +1091,10 @@ concept レスポンシブ
 インスタレスポンシブ
 ===================*/
 @media (max-width: 768px) {
+  .link {
+    text-align: center;
+  }
+
   .insta-icon-wrap {
     width: 18%;
     height: 18%;
@@ -1272,7 +1320,8 @@ footer small {
 @media (max-width: 768px) {
   .footer-fixed-nav {
     display: block;
-    position: fixed;/* 常に画面固定 */
+    position: fixed;
+    /* 常に画面固定 */
     bottom: 0;
     left: 0;
     width: 100vw;
@@ -1310,15 +1359,15 @@ footer small {
     margin-bottom: 4px;
   }
 
- /* 文字 */
+  /* 文字 */
   .footer-fixed-nav span {
     font-size: 10px;
     font-weight: bold;
   }
 
   .arrow {
-  display: none;
-}
+    display: none;
+  }
 }
 
 /* ここまで
