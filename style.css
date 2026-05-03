@@ -340,15 +340,17 @@ header .container {
 
   /* スマホ用・メインビジュアル内LINEボタン*/
   .LINE-button {
-    font-size: 1.3vw;
-    color: #48e685;
+    font-size: 3.5vw;
+    color: #fff;
+    background-color: #48e685;
     border: 1px solid #48e685;
     display: inline-block;
-    padding: 3px 3px;
+    padding: 6px 12px;
     position: absolute;
     top: 55%;
     left: 50%;
     white-space: nowrap;
+     width: auto;
   }
 }
 
